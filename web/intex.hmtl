@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Bot - Online Testni Yeching</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- LOGIN SAHIFASI -->
+        <div id="loginPage" class="page active">
+            <div class="form-card">
+                <h1>👋 Test Platformasiga Xush Kelibsiz</h1>
+                <p>Testni boshlash uchun ism va familiyangizni kiriting</p>
+                
+                <input 
+                    type="text" 
+                    id="fullName" 
+                    placeholder="Ism Familiyangiz"
+                    class="input-field"
+                >
+                
+                <button onclick="startTest()" class="btn btn-primary">
+                    Testni Boshlash →
+                </button>
+            </div>
+        </div>
+
+        <!-- TEST JADVALI SAHIFASI -->
+        <div id="testPage" class="page">
+            <div class="form-card">
+                <h1>📚 Fanni Tanlang</h1>
+                <p id="userGreeting"></p>
+                
+                <select id="subject" class="input-field">
+                    <option value="">-- Fanni tanlang --</option>
+                    <option value="Huquq">⚖️ Huquq</option>
+                    <option value="Chet tili">🌐 Chet tili</option>
+                    <option value="IQ">🧠 IQ</option>
+                    <option value="Fizika">⚛️ Fizika</option>
+                    <option value="Matematika">📐 Matematika</option>
+                    <option value="Kimyo">🧪 Kimyo</option>
+                    <option value="Biologiya">🔬 Biologiya</option>
+                    <option value="Tarix">📜 Tarix</option>
+                </select>
+
+                <input 
+                    type="text" 
+                    id="testCode" 
+                    placeholder="Test kodi (11, 22 va h.k.)"
+                    class="input-field"
+                    maxlength="2"
+                >
+
+                <input 
+                    type="number" 
+                    id="testCount" 
+                    placeholder="Test soni (10-90)"
+                    class="input-field"
+                    min="10"
+                    max="90"
+                >
+
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="scoring" value="general" checked>
+                        <span>Umumiy (1 ball)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="scoring" value="special">
+                        <span>Maxsus (1.1, 2.1, 3.1 ball)</span>
+                    </label>
+                </div>
+
+                <button onclick="loadTest()" class="btn btn-primary">
+                    Testni Yuklash →
+                </button>
+                <button onclick="goBack()" class="btn btn-secondary">
+                    ← Orqaga
+                </button>
+            </div>
+        </div>
+
+        <!-- TEST ISHGA TUSHIRISH SAHIFASI -->
+        <div id="quizPage" class="page">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h2 id="quizTitle"></h2>
+                    <div class="progress">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <p id="questionCounter"></p>
+                </div>
+
+                <div id="quizContent" class="quiz-content"></div>
+
+                <div class="quiz-footer">
+                    <button onclick="previousQuestion()" class="btn btn-secondary">
+                        ← Oldingi
+                    </button>
+                    <button onclick="nextQuestion()" class="btn btn-primary">
+                        Keyingi →
+                    </button>
+                    <button onclick="submitTest()" class="btn btn-success">
+                        ✅ Tekshirish
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NATIJA SAHIFASI -->
+        <div id="resultsPage" class="page">
+            <div class="results-card">
+                <h1 id="resultTitle"></h1>
+                <div class="score-display">
+                    <h2 id="scoreValue"></h2>
+                    <p>Umumiy Ball</p>
+                </div>
+
+                <div id="resultDetails"></div>
+
+                <button onclick="retakeTest()" class="btn btn-primary">
+                    🔄 Qayta Topshirish
+                </button>
+                <button onclick="goToHome()" class="btn btn-secondary">
+                    🏠 Asosiga Qaytish
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
